@@ -9,7 +9,7 @@
 
     - name: Generate leader config
       template:
-        src: config_template.j2
+        src: jinja2_template.j2
         dest: configs/config_node1.conf
       vars:
         node_name: "node1"
@@ -21,7 +21,7 @@
         - "node3"
         - "node4"
       template:
-        src: config_template.j2
+        src: jinja2_template.j2
         dest: configs/config_{{ item }}.conf
       vars:
         node_name: "{{ item }}"
@@ -29,7 +29,7 @@
 
     - name: Generate backup config
       template:
-        src: config_template.j2
+        src: jinja2_template.j2
         dest: configs/config_node5.conf
       vars:
         node_name: "node5"
