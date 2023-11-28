@@ -14,7 +14,7 @@
 - `worker` nodes have common directives and a unique identifier based on their node name.
 - `backup` node requires directives to know which node it backs up.
 
-## Configuration Directives
+## Configuration Directives & Jinja2 template with Ansible Playbook
 
 All nodes need common directives:
 
