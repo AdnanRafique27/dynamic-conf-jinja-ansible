@@ -2,7 +2,8 @@
 
 ## Task Description
 
-    This project involves deploying a multi-node application cluster, where each node requires a configuration file. The configuration file content varies based on the node's role, position in the cluster, and its name.
+    This project involves deploying a multi-node application cluster, where each node requires a configuration file.
+    The configuration file content varies based on the node's role, position in the cluster, and its name.
 
 ## Requirements
 ## Roles and Node Names
