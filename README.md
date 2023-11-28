@@ -27,7 +27,7 @@ log_level: "info"
 
 - role: "worker"
     worker_id: [unique_id]
-    Where [unique_id] is calculated as 1000 + X (from the node name nodeX).
+    Where [unique_id] is calculated as (1000-1) + X (from the node name nodeX). // can be used simply as 1000 as well, but it will start from digit 2 then.
 
 - backup node requires:
     role: "backup"
@@ -55,5 +55,5 @@ Clone this repository:
     ansible-playbook generate_configs.yaml
     //Check the configs directory for generated configuration files.
 
-Author
-Adnan Rafique
+## Author
+    Adnan Rafique
