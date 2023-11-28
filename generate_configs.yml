@@ -1,0 +1,37 @@
+---
+- name: Generate Configuration Files
+  hosts: localhost
+  tasks:
+    - name: Create configs directory
+      file:
+        path: configs
+        state: directory
+
+    - name: Generate leader config
+      template:
+        src: config_template.j2
+        dest: configs/config_node1.conf
+      vars:
+        node_name: "node1"
+        role: "leader"
+
+    - name: Generate worker configs
+      loop:
+        - "node2"
+        - "node3"
+        - "node4"
+      template:
+        src: config_template.j2
+        dest: configs/config_{{ item }}.conf
+      vars:
+        node_name: "{{ item }}"
+        role: "worker"
+
+    - name: Generate backup config
+      template:
+        src: config_template.j2
+        dest: configs/config_node5.conf
+      vars:
+        node_name: "node5"
+        role: "backup"
+        backup_for: "node1"

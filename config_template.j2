@@ -1,0 +1,14 @@
+cluster_name: "my_cluster"
+log_level: "info"
+
+{% if role == "leader" %}
+role: "leader"
+{% elif role == "worker" %}
+role: "worker"
+worker_id: {{ (1000-1) + node_name.replace("node", "") | int }}
+{% elif role == "backup" %}
+role: "backup"
+backup_for: {{ backup_for }}
+{% else %}
+# Handle any other conditions or leave empty for no role
+{% endif %}
